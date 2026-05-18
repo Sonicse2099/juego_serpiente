@@ -7,136 +7,167 @@
 
 body {
     min-height: 100vh;
-    background: linear-gradient(135deg, #1e293b, #0f172a);
+    background: linear-gradient(135deg, #020b18, #041428);
     color: white;
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 20px;
+    align-items: flex-start;
+    padding: 14px;
 }
 
 .contenedor-juego {
     width: 100%;
-    max-width: 720px;
-    background: #111827;
+    max-width: 660px;
+    background: #0d1b2a;
     border-radius: 20px;
-    padding: 24px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    padding: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 30px rgba(21,101,192,0.2);
     text-align: center;
+    border: 2px solid #1565C0;
 }
 
 h1 {
-    margin-bottom: 10px;
-    font-size: 32px;
-    color: #22c55e;
+    margin-bottom: 6px;
+    font-size: 26px;
+    color: #FFD700;
+    text-shadow: 0 0 10px rgba(255,215,0,0.5);
 }
 
 .descripcion {
-    margin-bottom: 18px;
-    color: #cbd5e1;
-    line-height: 1.5;
+    margin-bottom: 10px;
+    color: #90CAF9;
+    line-height: 1.4;
+    font-size: 13px;
 }
 
 .panel-info {
     display: flex;
     justify-content: space-between;
-    gap: 12px;
-    margin-bottom: 16px;
+    gap: 10px;
+    margin-bottom: 10px;
     flex-wrap: wrap;
 }
 
 .tarjeta-info {
     flex: 1;
-    min-width: 150px;
-    background: #1f2937;
-    padding: 14px;
-    border-radius: 14px;
-    border: 1px solid #374151;
+    min-width: 130px;
+    background: #0a1628;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid #1565C0;
 }
 
 .tarjeta-info span {
     display: block;
-    font-size: 14px;
-    color: #94a3b8;
-    margin-bottom: 4px;
+    font-size: 13px;
+    color: #90CAF9;
+    margin-bottom: 2px;
 }
 
 .tarjeta-info strong {
-    font-size: 24px;
-    color: #facc15;
+    font-size: 22px;
+    color: #FFD700;
 }
 
 canvas {
     width: 100%;
-    max-width: 500px;
-    background: #020617;
-    border: 4px solid #22c55e;
-    border-radius: 16px;
+    max-width: 480px;
+    background: #020b18;
+    border: 3px solid #1565C0;
+    border-radius: 12px;
     display: block;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 12px auto;
+    box-shadow: 0 0 20px rgba(21,101,192,0.4);
+}
+
+.zona-controles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
 }
 
 .controles {
     display: grid;
-    grid-template-columns: repeat(3, 90px);
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 18px;
+    grid-template-columns: repeat(3, 65px);
+    gap: 7px;
 }
 
-.controles button,
-.acciones button {
+.controles button {
     border: none;
-    border-radius: 12px;
-    padding: 12px 16px;
-    background: #22c55e;
-    color: #052e16;
+    border-radius: 10px;
+    padding: 10px;
+    background: #1565C0;
+    color: white;
+    font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     transition: 0.2s;
 }
 
-.controles button:hover,
-.acciones button:hover {
-    transform: scale(1.05);
-    background: #86efac;
+.controles button:hover {
+    transform: scale(1.08);
+    background: #1976D2;
 }
 
 .vacio {
     visibility: hidden;
 }
 
-.acciones {
+.acciones-derecha {
     display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
 }
 
-.acciones .secundario {
-    background: #38bdf8;
-    color: #082f49;
+.acciones-top {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-pausar, .btn-iniciar, .btn-reiniciar {
+    border: none;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 14px;
+}
+
+.btn-pausar {
+    background: #FFD700;
+    color: #000;
+}
+
+.btn-iniciar {
+    background: #22c55e;
+    color: #052e16;
+}
+
+.btn-reiniciar {
+    background: #1565C0;
+    color: white;
+    width: 100%;
+}
+
+.btn-pausar:hover, .btn-iniciar:hover, .btn-reiniciar:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
 }
 
 .mensaje {
-    margin-top: 14px;
-    color: #e2e8f0;
-    min-height: 24px;
+    margin-top: 8px;
+    color: #90CAF9;
+    min-height: 20px;
     font-weight: bold;
+    font-size: 14px;
 }
 
-@media (max-width: 520px) {
-    h1 {
-        font-size: 24px;
-    }
-
-    .controles {
-        grid-template-columns: repeat(3, 75px);
-    }
-
-    .controles button,
-    .acciones button {
-        padding: 10px;
-    }
+@media (max-width: 480px) {
+    h1 { font-size: 20px; }
+    .controles { grid-template-columns: repeat(3, 55px); }
 }

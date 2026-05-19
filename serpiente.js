@@ -216,26 +216,5 @@ function dibujarTodo() {
 
 dibujarTodo();
 
-let touchStartX = 0;
-let touchStartY = 0;
-
-document.addEventListener("touchstart", function(e) {
-    touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY;
-}, { passive: true });
-
-document.addEventListener("touchend", function(e) {
-    const dx = e.changedTouches[0].clientX - touchStartX;
-    const dy = e.changedTouches[0].clientY - touchStartY;
-
-    if (Math.abs(dx) > Math.abs(dy)) {
-        if (dx > 0) cambiarDireccion("derecha");
-        else cambiarDireccion("izquierda");
-    } else {
-        if (dy > 0) cambiarDireccion("abajo");
-        else cambiarDireccion("arriba");
-    }
-}, { passive: true });
-
 
 

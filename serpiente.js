@@ -48,7 +48,6 @@ function pintarCabeza(lineaX, lineaY) {
     ctx.fillText("🦔", x, y);
 }
 
-// Cuerpo: anillos dorados
 function pintarAnillo(lineaX, lineaY) {
     const x = lineaX * TAMANIO_CELDA;
     const y = lineaY * TAMANIO_CELDA;

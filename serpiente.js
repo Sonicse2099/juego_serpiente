@@ -39,7 +39,6 @@ function limpiarCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
-// Cabeza: Sonic emoji
 function pintarCabeza(lineaX, lineaY) {
     const x = lineaX * TAMANIO_CELDA;
     const y = lineaY * TAMANIO_CELDA;
@@ -48,7 +47,6 @@ function pintarCabeza(lineaX, lineaY) {
     ctx.fillText("🦔", x, y);
 }
 
-// Cuerpo: anillos dorados
 function pintarAnillo(lineaX, lineaY) {
     const x = lineaX * TAMANIO_CELDA;
     const y = lineaY * TAMANIO_CELDA;
@@ -91,7 +89,6 @@ function generarPosicionComida() {
     };
 }
 
-// Comida: anillo brillante
 function pintarComida() {
     const cx = comida.x * TAMANIO_CELDA + TAMANIO_CELDA / 2;
     const cy = comida.y * TAMANIO_CELDA + TAMANIO_CELDA / 2;
@@ -203,7 +200,6 @@ function cambiarDireccion(direccion) {
     direccionActual = direccion;
 }
 
-// EXTRA: control con teclado (flechas)
 document.addEventListener("keydown", function(e) {
     if (e.key === "ArrowRight") cambiarDireccion("derecha");
     else if (e.key === "ArrowLeft") cambiarDireccion("izquierda");
@@ -219,6 +215,27 @@ function dibujarTodo() {
 }
 
 dibujarTodo();
+
+let touchStartX = 0;
+let touchStartY = 0;
+
+document.addEventListener("touchstart", function(e) {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+}, { passive: true });
+
+document.addEventListener("touchend", function(e) {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dy = e.changedTouches[0].clientY - touchStartY;
+
+    if (Math.abs(dx) > Math.abs(dy)) {
+        if (dx > 0) cambiarDireccion("derecha");
+        else cambiarDireccion("izquierda");
+    } else {
+        if (dy > 0) cambiarDireccion("abajo");
+        else cambiarDireccion("arriba");
+    }
+}, { passive: true });
 
 
 
